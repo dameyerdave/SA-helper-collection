@@ -1,0 +1,23 @@
+<dashboard>
+  <label>Search Overview</label>
+  <row>
+    <panel>
+      <title>Executed searches</title>
+      <table>
+        <search>
+          <query>index=_audit savedsearch_name="" NOT typeahead search=* NOT search=summarize* | table _time,search</query>
+          <earliest>-4h</earliest>
+          <latest>now</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+</dashboard>
