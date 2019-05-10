@@ -5,7 +5,7 @@
       <title>Executed searches</title>
       <table>
         <search>
-          <query>index=_audit savedsearch_name="" NOT typeahead search=* NOT search=summarize* | table _time,search</query>
+          <query>index=_audit action=search search=* NOT typeahead NOT summarize | table _time,search</query>
           <earliest>-4h</earliest>
           <latest>now</latest>
           <sampleRatio>1</sampleRatio>
@@ -14,6 +14,7 @@
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">none</option>
         <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
         <option name="rowNumbers">false</option>
         <option name="totalsRow">false</option>
         <option name="wrap">true</option>
