@@ -1,0 +1,58 @@
+<dashboard>
+  <label>Connections Overview</label>
+  <row>
+    <panel>
+      <title>Connections Overview</title>
+      <table>
+        <search>
+          <query>index=_internal sourcetype=splunkd component=StatusMgr eventType=connect* | stats values(eventType) count by sourceIp host</query>
+          <earliest>0</earliest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Forwarding Servers I</title>
+      <table>
+        <search>
+          <query>index=_internal sourcetype=splunkd component=TcpOutputProc connected | stats count by host idx</query>
+          <earliest>0</earliest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+    <panel>
+      <title>Forwarding Servers II</title>
+      <table>
+        <search>
+          <query>index=_internal sourcetype=splunkd metrics group=tcpin_connections connectionType=cooked* | stats sum(kb) by hostname, fwdType, lastIndexer</query>
+          <earliest>0</earliest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+</dashboard>
